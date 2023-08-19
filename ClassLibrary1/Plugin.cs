@@ -43,6 +43,7 @@ namespace ClassLibrary1
         {
             ev.Player.Broadcast(5, "hello epta");
             //throw new System.NotImplementedException();
+            //testcoment
             Cassie.Message("nu is now");
         }
     }
