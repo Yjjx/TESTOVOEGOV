@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,31 +25,19 @@ namespace ClassLibrary1
                 yield return Timing.WaitForSeconds(x);
             }
         }
-        public string Command => "pizda";
+        public string Command => ".changeinfo";
 
-        public string[] Aliases => new string[] {"pz", "pizdc", "pzdc"};
-        public string Description => "nice cum";
+        public string[] Aliases => new string[] {"ci"};
+        public string Description => "Меняет информацию о вашей роли";
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            var time = arguments;
-
-            if (arguments.Count != 1)
-            {
-                response = "введите длительность";
-                return false;
-            }
-            if (int.TryParse(arguments.At(0), out int value))
-            {
-                Timing.RunCoroutine(MyCoroutine(value));
-                response = "ЖДЕМ СУКА";
-            }
-            //throw new NotImplementedException();
+            string time = string.Concat(arguments);
+            time.ToString();
             var PlayerGet = Player.Get(sender);
-            var room = PlayerGet.CurrentRoom;
-            room.TurnOffLights(5);
-            PlayerGet.Broadcast(5, Plugin.Configs.testa);
-            room.LockDown(5);
+            string displayNickname = PlayerGet.DisplayNickname;
+            displayNickname = time;
+            //throw new NotImplementedException();
             response = "sveta net";
             return true;
         }

@@ -30,7 +30,6 @@ namespace ClassLibrary1
         private void Player_Shooting(ShootingEventArgs ev)
         {
             //throw new System.NotImplementedException();
-
         }
 
         private void Player_ActivatingGenerator(ActivatingGeneratorEventArgs ev)
