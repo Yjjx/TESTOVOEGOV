@@ -33,12 +33,10 @@ namespace ClassLibrary1
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
             string time = string.Concat(arguments);
-            time.ToString();
             var PlayerGet = Player.Get(sender);
-            string displayNickname = PlayerGet.DisplayNickname;
-            displayNickname = time;
+            time = PlayerGet.DisplayNickname;
             //throw new NotImplementedException();
-            response = "sveta net";
+            response = "изменино";
             return true;
         }
     }
