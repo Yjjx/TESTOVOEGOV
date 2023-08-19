@@ -32,9 +32,9 @@ namespace ClassLibrary1
 
         public bool Execute(ArraySegment<string> arguments, ICommandSender sender, out string response)
         {
-            string time = string.Concat(arguments);
+            string time = string.Join(" ", arguments);
             var PlayerGet = Player.Get(sender);
-            time = PlayerGet.DisplayNickname;
+            PlayerGet.DisplayNickname = time;
             //throw new NotImplementedException();
             response = "изменино";
             return true;
